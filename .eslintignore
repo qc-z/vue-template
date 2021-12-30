@@ -5,3 +5,8 @@
 /src/auto-import.d.ts
 /src/components.d.ts
 /dist
+/src/api
+/config/*
+vitepress-auto-import.d.ts
+!.cz-config.js
+!pont-template.ts

@@ -13,7 +13,8 @@
     "types": ["vite/client", "element-plus/global"],
     "baseUrl": "src",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@api/*": ["./api/mods/*"]
     }
   },
   "include": [

@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import styleImport, { ElementPlusResolve } from 'vite-plugin-style-import'
+// import styleImport, { ElementPlusResolve } from 'vite-plugin-style-import'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // import legacy from '@vitejs/plugin-legacy'
 // import Inspect from 'vite-plugin-inspect'
@@ -26,7 +26,11 @@ export default defineConfig({
         //   enabledCollections: ['ep']
         // }),
         // 自动导入 Element Plus 组件
-        ElementPlusResolver()
+        ElementPlusResolver({
+          importStyle: 'sass',
+          directives: true,
+          version: '1.2.0-beta.6'
+        })
       ]
     }),
     AutoImport({
@@ -34,9 +38,9 @@ export default defineConfig({
       imports: ['vue', 'vue-router'],
       dts: 'src/auto-import.d.ts'
     }),
-    styleImport({
-      resolves: [ElementPlusResolve()]
-    }),
+    // styleImport({
+    //   resolves: [ElementPlusResolve()]
+    // }),
     WindiCSS(),
     viteSvgIcons({
       // Specify the icon folder to be cached
@@ -56,7 +60,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '/src'),
-      api: path.resolve(__dirname, 'src/services')
+      '@api': path.resolve(__dirname, '/src/api/mods')
     },
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
   },
@@ -95,8 +99,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "sass:math";@import "./src/style/color.scss";',
-        // element-plus css文件bug
+        additionalData: `@use "./src/style/element/index.scss" as *;@use "./src/style/variable/index.scss" as *;`,
         charset: false
       }
     }

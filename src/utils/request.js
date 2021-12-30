@@ -94,7 +94,6 @@ service.interceptors.response.use(
  * @param {*} options  请求配置
  */
 function request(options) {
-  console.log(options)
   // 判断get/post,默认get
   options.method = options.method || 'get'
   // 防止有时候写了GET

@@ -1,0 +1,18 @@
+{
+  "outDir": "../src/api",
+  "originUrl": "https://petstore.swagger.io/v2/swagger.json",
+  "mocks": {
+    "enable": true,
+    "port": 8081
+  },
+  "templatePath": "./pont-template",
+  "prettierConfig": {
+    "useTabs": false,
+    "tabWidth": 2,
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "bracketSpacing": true,
+    "semi": false
+  }
+}

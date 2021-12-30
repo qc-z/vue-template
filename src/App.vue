@@ -21,4 +21,3 @@ window.addEventListener('resize', () => {
   setRem()
 })
 </script>
-<style></style>

@@ -10,12 +10,3 @@ const __VITE_CONFIG__ = config || {}
  * @type {*|string}
  */
 export const API_HOST = __VITE_CONFIG__.API_HOST || 'http://127.0.0.1:8080'
-
-/**
- * os相关配置
- * @type {*|string}
- */
-export const OS_URL = __VITE_CONFIG__.OS_URL || 'http://127.0.0.1:8080'
-export const LOGIN_URL = `${__VITE_CONFIG__.OS_URL}/#/loginByName`
-export const MYCENTER_URL = `${__VITE_CONFIG__.OS_URL}/#/mycenter`
-export const MESSAGE_URL = `${__VITE_CONFIG__.OS_URL}/#/notificationannouncement`

@@ -1,24 +1,12 @@
 const sidebar = {
   '/': [
-    { text: '快速开始', link: '/' },
     {
-      text: '通用',
-      children: [{ text: 'Button 按钮', link: '/components/button/' }]
-    },
-    {
-      text: '导航'
-    },
-    {
-      text: '反馈'
-    },
-    {
-      text: '数据录入'
-    },
-    {
-      text: '数据展示'
-    },
-    {
-      text: '布局'
+      text: '项目文档',
+      children: [
+        { text: 'pont', link: '/components/pont' },
+        { text: 'Button 按钮', link: '/components/button' },
+        { text: '自定义组件', link: '/components/test' }
+      ]
     }
   ]
 }

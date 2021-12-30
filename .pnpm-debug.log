@@ -1,0 +1,22 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 error pnpm": {
+    "code": "ELIFECYCLE",
+    "errno": "ENOENT",
+    "syscall": "spawn",
+    "file": "sh",
+    "pkgid": "admin-pro@0.0.0",
+    "stage": "dev",
+    "script": "vite",
+    "pkgname": "admin-pro",
+    "err": {
+      "name": "pnpm",
+      "message": "admin-pro@0.0.0 dev: `vite`\nspawn ENOENT",
+      "code": "ELIFECYCLE",
+      "stack": "pnpm: admin-pro@0.0.0 dev: `vite`\nspawn ENOENT\n    at ChildProcess.<anonymous> (/usr/local/lib/node_modules/pnpm/dist/pnpm.cjs:91775:22)\n    at ChildProcess.emit (events.js:314:20)\n    at maybeClose (internal/child_process.js:1047:16)\n    at Process.ChildProcess._handle.onexit (internal/child_process.js:287:5)"
+    }
+  },
+  "2 warn pnpm:global": " Local package.json exists, but node_modules missing, did you mean to install?"
+}

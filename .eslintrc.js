@@ -10,7 +10,8 @@ module.exports = {
     useRoute: true,
     useRouter: true,
     ElMessageBox: true,
-    ElMessage: true
+    ElMessage: true,
+    ElLoading: true
   },
   extends: ['plugin:vue/essential', 'airbnb-base', 'plugin:prettier/recommended', 'vue-global-api'],
   parserOptions: {
@@ -39,6 +40,8 @@ module.exports = {
     'guard-for-in': 'off',
     'consistent-return': 'off',
     'func-names': 'off',
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
+    'no-return-assign': 'off',
+    'array-callback-return': 'off'
   }
 }

@@ -48,8 +48,7 @@ Thumbs.db
 
 .mocks/
 
-/src/services
-/config
+/src/api
 /dist/
 /docs/.vitepress/dist/
 
@@ -57,3 +56,5 @@ Thumbs.db
 
 auto-import.d.ts
 components.d.ts
+vitepress-auto-import.d.ts
+vitepress-components.d.ts

@@ -1,73 +1,85 @@
 <template>
-  <div class="container">
-    <BaseHeader> </BaseHeader>
-    <SvgIcon name="icon1" color="red"></SvgIcon>
-    <div
-      class="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-2 sm:(py-4 flex items-center space-y-0 space-x-6)"
-    >
-      <img
-        class="block mx-auto h-24 rounded-full sm:(mx-0 flex-shrink-0)"
-        src="/favicon.ico"
-        alt="Woman's Face"
-      />
-      <div class="text-center space-y-2 sm:text-left">
-        <div class="space-y-0.5">
-          <p class="text-lg text-black font-semibold">Erin Lindford</p>
-          <p class="text-gray-500 font-medium">产品经理</p>
-        </div>
-        <button
-          class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:(text-white bg-purple-600 border-transparent) focus:(outline-none ring-2 ring-purple-600 ring-offset-2)"
-        >
-          消息
-        </button>
-      </div>
-    </div>
-    <el-row>
-      <el-button type="primary" @click="openMessage">测试ElMessageBox</el-button>
-    </el-row>
-  </div>
+  <el-table :data="tableData" style="width: 100%" class="my-table">
+    <el-table-column prop="date" label="Date" width="180"></el-table-column>
+    <el-table-column prop="name" label="Name" width="180"></el-table-column>
+    <el-table-column prop="address" label="Address">
+      <el-button type="primary" @click="switchTheme('defaultTheme')">defaultTheme</el-button>
+      <el-button type="warning" @click="switchTheme('darkTheme')">darkTheme</el-button>
+      <el-button color="#626aef" style="color: #fff">Custom</el-button>
+
+      <span class="fonts">字体</span>
+      <span class="fonts1">字体</span>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script setup>
-// import 'api'
+import themes from '@/utils/themes'
+import { colorMix } from '@/utils/utils'
 
-// console.log(window.API.accountAudit.audit)
-// console.log(window.API.accountAudit.accountAuditPage.accountAuditPage({ data: 2 }))
-// console.log(window.API.companyMonit.xzJcjl.xzJcjl({ data: 2 }))
+const switchTheme = (type) => {
+  // 根据不同的主题类型 获取不同主题数据
+  // themes 对象包含 defaultTheme、darkTheme 两个属性即默认主题与深色主题
+  // 通过`import themes from '@/utils/themes'` 导入
+  type = type || 'darkTheme'
+  const colorObj = themes[type]
 
-/* API */
-/* 组件 */
-/* 功能 */
-const openMessage = () => {
-  ElMessageBox.confirm('proxy will permanently delete the file. Continue?', 'Warning', {
-    confirmButtonText: 'OK',
-    cancelButtonText: 'Cancel',
-    type: 'warning'
+  // 获取基本色色阶
+  // colorMix是一个函数
+  for (let i = 1; i < 10; i += 1) {
+    colorObj[`--el-color-primary-light-${10 - i}`] = colorMix(
+      colorObj['--el-color-white'],
+      colorObj['--el-color-primary'],
+      i * 0.1
+    )
+  }
+
+  // 设置css 变量
+  Object.keys(colorObj).map((item) => {
+    document.documentElement.style.setProperty(item, colorObj[item])
   })
-    .then(() => {
-      Message({
-        type: 'success',
-        message: 'Delete completed'
-      })
-    })
-    .catch(() => {
-      ElMessage({
-        type: 'info',
-        message: 'Delete canceled'
-      })
-    })
 }
+const tableData = [
+  {
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles'
+  },
+  {
+    date: '2016-05-02',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles'
+  },
+  {
+    date: '2016-05-04',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles'
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles'
+  }
+]
+onMounted(() => {
+  ElMessage('this is a message.')
+
+  // switchTheme('darkTheme')
+})
 </script>
 
 <style lang="scss" scoped>
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  .empty {
-    // height: 100%;
-    // width: 100%;
-    flex: 1;
-  }
+.test {
+  color: $color1;
+}
+.fonts {
+  font-family: HYXiaoBoZheZhiTiJ;
+  font-size: 18px;
+  font-weight: 400;
+}
+.fonts1 {
+  font-family: LESLIE-Regular;
+  font-size: 18px;
+  font-weight: 400;
 }
 </style>

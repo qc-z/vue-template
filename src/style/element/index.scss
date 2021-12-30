@@ -1,0 +1,18 @@
+/* just override what you need */
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': green
+    ),
+    'warning': (
+      'base': red
+    )
+  ),
+  $table: (
+    'border-color': red,
+    'text-color': red
+  )
+);
+
+// 如果你想导入所有样式:
+// @use "element-plus/theme-chalk/src/index.scss" as *;

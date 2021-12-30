@@ -13,7 +13,8 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "register:components": "vitepress-rc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
@@ -23,19 +24,19 @@
     "axios": "^0.24.0",
     "dayjs": "^1.10.7",
     "echarts": "5.2.1",
+    "echarts-gl": "^2.0.8",
     "echarts-wordcloud": "^2.0.0",
     "element-plus": "1.2.0-beta.6",
     "lodash": "^4.17.21",
     "pinia": "^2.0.8",
     "qs": "^6.10.2",
-    "swrv": "^1.0.0-beta.8",
     "vue": "^3.2.26",
     "vue-router": "^4.0.12",
     "vue3-lazyload": "^0.2.5-beta"
   },
   "devDependencies": {
-    "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^15.0.0",
+    "@commitlint/cli": "15.0.0",
+    "@commitlint/config-conventional": "15.0.0",
     "@iconify-json/ep": "^1.0.1",
     "@types/node": "^16.11.15",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
@@ -46,6 +47,7 @@
     "@vue/compiler-sfc": "^3.2.26",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.3.0",
     "esbuild": "^0.13.15",
     "esbuild-register": "^3.2.1",
     "eslint": "^8.5.0",
@@ -70,7 +72,7 @@
     "vite-plugin-style-import": "^1.4.0",
     "vite-plugin-svg-icons": "^1.0.5",
     "vite-plugin-windicss": "^1.6.1",
-    "vitepress": "^0.20.9",
+    "vitepress": "0.20.10",
     "vitepress-theme-demoblock": "^1.4.2",
     "vue-global-api": "^0.4.1",
     "vue-tsc": "^0.2.3",
@@ -78,7 +80,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "node_modules/cz-customizable"
     }
   },
   "lint-staged": {
