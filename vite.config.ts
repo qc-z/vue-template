@@ -8,9 +8,10 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // import Inspect from 'vite-plugin-inspect'
 // import IconsResolver from 'unplugin-icons/resolver'
 // import Icons from 'unplugin-icons/vite'
-import WindiCSS from 'vite-plugin-windicss'
+// import WindiCSS from 'vite-plugin-windicss'
 import viteSvgIcons from 'vite-plugin-svg-icons'
 import path from 'path'
+import Unocss from 'unocss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -41,13 +42,13 @@ export default defineConfig({
     // styleImport({
     //   resolves: [ElementPlusResolve()]
     // }),
-    WindiCSS(),
+    // WindiCSS(),
     viteSvgIcons({
       // Specify the icon folder to be cached
       iconDirs: [path.resolve(process.cwd(), 'src/icons')],
       // Specify symbolId format
       symbolId: 'icon-[dir]-[name]'
-    })
+    }),
     // legacy({
     //   targets: ['ie >= 11'],
     //   additionalLegacyPolyfills: ['regenerator-runtime/runtime']
@@ -56,6 +57,7 @@ export default defineConfig({
     //   autoInstall: true
     // }),
     // Inspect(),
+    Unocss()
   ],
   resolve: {
     alias: {

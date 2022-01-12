@@ -14,8 +14,9 @@ import './style/index.scss'
 import App from './App.vue'
 // // 第一种方法 使用中国时区weekStart默认为1
 import 'dayjs/locale/zh-cn'
-import 'virtual:windi.css'
+// import 'virtual:windi.css'
 import 'virtual:svg-icons-register'
+import 'uno.css'
 
 window.ResizeObserver = ResizeObserver
 ;(window as any).Message = Message
